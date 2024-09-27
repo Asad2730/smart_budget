@@ -12,6 +12,9 @@ import { CustomInput } from "../../components/ui/customInput";
 import { CustomCard } from "../../components/ui/customCard";
 import { CustomSafeArea } from "../../components/ui/customSafeArea";
 import { CustomBtn } from "../../components/ui/customPressable";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "../../navigations/types";
 
 interface IAuth {
   email: string;
@@ -19,6 +22,7 @@ interface IAuth {
 }
 
 export default function Auth() {
+  const navigation = useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState<IAuth>({
     email: "",
@@ -74,9 +78,7 @@ export default function Auth() {
 
             <View style={styles.signInButtonContainer}>
               <CustomBtn
-                onPress={() => {
-                  console.log(isLogin ? "sign in" : "sign up");
-                }}
+                onPress={() =>navigation.navigate('home')}
               >
                 <Text style={styles.signInText}>
                   {isLogin ? "Sign in" : "Sign up"}

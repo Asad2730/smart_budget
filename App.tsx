@@ -1,10 +1,9 @@
-import Auth from "./screens/auth/auth";
-import Home from "./screens/home/home";
+import Navigation from "./navigations/navigation";
+
 
 export default function App() {
   return (
-    // <Auth/>
-    <Home/>
+   <Navigation/>
   );
 }
 
